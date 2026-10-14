@@ -1,4 +1,6 @@
+ 
 import pandas as pd
+import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -35,6 +37,11 @@ model = RandomForestClassifier(
 model.fit(X_train, y_train)
 
 print("\nModel training completed!")
+
+# Save the trained model
+joblib.dump(model, "emotion_model.pkl")
+
+print("Model saved successfully as emotion_model.pkl!")
 
 # Predict emotions for test data
 y_pred = model.predict(X_test)
